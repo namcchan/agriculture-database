@@ -1,10 +1,12 @@
 import { Box, Button, Container, Stack } from '@mui/material';
 import Image from 'next/image';
+import NextLink from 'next/link';
 
 import backgroundHero from '../assets/images/background-hero.png';
 import logo from '../assets/images/logo.svg';
 import { Categories } from '../components/home/Categories';
 import { HomeHero } from '../components/home/HomeHero';
+import Footer from '../components/Footer';
 
 export default function Home() {
   return (
@@ -24,9 +26,11 @@ export default function Home() {
             <Image src={logo} layout="fill" objectFit="contain" alt="logo" />
           </Box>
           <Box display="flex" justifyContent="flex-end" flex={1}>
-            <Button variant="text" sx={{ color: 'white', mx: 2 }}>
-              CSDL Ngành
-            </Button>
+            <NextLink href="/database" passHref>
+              <Button variant="text" sx={{ color: 'white', mx: 2 }}>
+                CSDL Ngành
+              </Button>
+            </NextLink>
             <Button variant="text" sx={{ color: 'white', mx: 2 }}>
               Giới thiệu
             </Button>
@@ -46,9 +50,7 @@ export default function Home() {
         <HomeHero />
         <Categories />
       </Container>
-      <Box minHeight={250} bgcolor="primary.main" width="100%">
-        <Container maxWidth="lg"></Container>
-      </Box>
+      <Footer />
     </Stack>
   );
 }
